@@ -12,7 +12,7 @@ import { Edit, PlusCircle } from "lucide-react";
 import Link from "next/link";
 import DeleteProduct from "./DeleteProduct";
 import Image from "next/image";
-import { getProducts } from "../_services/product";
+import { getProducts } from "../services/product";
 
 const ProductTable = async (props: { products: Awaited<ReturnType<typeof getProducts>> }) => {
   const { products } = props;

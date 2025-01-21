@@ -10,7 +10,7 @@ import {
   DialogTrigger,
   DialogFooter,
 } from "@/components/ui"
-import { deleteProduct } from "../_services/product"
+import { deleteProduct } from "../services/product"
 
 const DeleteProduct = async (props: { id: string }) => {
   'use server'

@@ -1,5 +1,5 @@
-import { getProductById } from '../_services/product'
-import ProductForm from '../_components/ProductForm'
+import { getProductById } from '../services/product'
+import ProductForm from '../components/ProductForm'
 import React, { FC } from 'react'
 
 

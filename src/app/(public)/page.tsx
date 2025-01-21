@@ -2,7 +2,7 @@ import { Button } from "@/components/ui";
 import { MonitorSmartphone } from "lucide-react";
 import Link from "next/link";
 
-export default function Home() {
+export default function SitePage() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <span>Welcome to</span>

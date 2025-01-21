@@ -1,7 +1,7 @@
 import React from 'react'
 import { Suspense } from "react";
 import Spinner from '@/components/Spinner';
-import ProductList from './_views/productListView';
+import ProductSiteView from '@/modules/products/views/productSiteView';
 
 // export const revalidate = 60;
 
@@ -15,7 +15,7 @@ function ProductPage() {
       <Suspense fallback={
         <Spinner />
       }>
-        <ProductList />
+        <ProductSiteView />
       </Suspense>
     </div>
   )

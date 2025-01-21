@@ -6,7 +6,7 @@ import {
   Input, Button, Textarea, Label, Card, CardContent, CardDescription,
   CardFooter, CardHeader, CardTitle, Select, SelectTrigger, SelectValue, SelectContent, SelectItem
 } from '@/components/ui';
-import { upsertProduct } from '../_services/product';
+import { upsertProduct } from '../services/product';
 import Link from 'next/link';
 import dynamic from "next/dynamic";
 const UploadImage = dynamic(() => import("./UploadImage"), { ssr: false });

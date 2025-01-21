@@ -7,7 +7,7 @@ import Image from "next/image"
 import { FC, useEffect, useState } from 'react';
 import { Button } from "@/components/ui"
 import Spinner from "@/components/Spinner";
-import { deleteImage, getImagesByProductId, uploadImage } from "../_services/image";
+import { deleteImage, getImagesByProductId, uploadImage } from "../services/image";
 import { Image as ImageType } from "@prisma/client";
 import { CircleX } from "lucide-react";
 

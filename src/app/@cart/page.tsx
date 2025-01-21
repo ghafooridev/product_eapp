@@ -5,9 +5,9 @@ import Link from 'next/link';
 
 function Cart() {
   return (
-    <div>
+    <div className='flex items-center gap-2'>
       <div className="relative">
-        <Badge className="absolute bottom-3 left-3  rounded-full w-5 h-5 flex items-center justify-center">4</Badge>
+        {/* <Badge className="absolute bottom-3 left-3  rounded-full w-5 h-5 flex items-center justify-center">4</Badge> */}
         <ShoppingCart size={20} className="relative" />
       </div>
       <Button asChild>
