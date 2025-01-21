@@ -1,0 +1,16 @@
+import { getProductById } from '../_services/product'
+import ProductForm from '../_components/ProductForm'
+import React, { FC } from 'react'
+
+
+const ProductDetailView: FC<{ id: string }> = async ({ id }) => {
+
+  const product = await getProductById(id)
+  return (
+    <div>
+      <ProductForm product={product} />
+    </div>
+  )
+}
+
+export default ProductDetailView

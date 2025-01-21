@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Container from "@/components/Container";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,15 +20,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  ads
 }: Readonly<{
   children: React.ReactNode;
+  ads: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Container>
+          {children}
+          <div className="sticky bottom-20 mx-auto flex justify-center">  {ads}</div>
+        </Container>
       </body>
     </html>
   );
