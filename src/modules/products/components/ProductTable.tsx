@@ -21,7 +21,7 @@ const ProductTable = async (props: { products: Awaited<ReturnType<typeof getProd
       <div className="flex justify-between items-center p-4 bg-gray-100">
         <h1 className="text-xl font-semibold">Products</h1>
         <Button asChild>
-          <Link href="/product/new">Add New Product
+          <Link href="/dashboard/products/new">Add New Product
             <PlusCircle />
           </Link>
         </Button>
@@ -50,7 +50,7 @@ const ProductTable = async (props: { products: Awaited<ReturnType<typeof getProd
               <TableCell className="text-center">
                 <div className="flex justify-center gap-2 items-center">
                   <Button variant="ghost" asChild>
-                    <Link href={`/product/${product.id}`} >
+                    <Link href={`/dashboard/products/${product.id}`} >
                       <Edit />
                     </Link>
                   </Button>

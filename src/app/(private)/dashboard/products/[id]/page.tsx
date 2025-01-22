@@ -1,21 +1,19 @@
 import React from 'react'
 import { Suspense } from "react";
 import Spinner from '@/components/Spinner';
-import ProductSiteView from '@/modules/products/views/productSiteView';
-
-// export const revalidate = 60;
+import ProductDetailView from '@/modules/products/views/productFormView';
 
 
-
-
-function ProductPage() {
-  // throw new Error("An unintentional Error, please revisit again")
+const ProductPage = async ({ params }: {
+  params: Promise<{ id: string }>
+}) => {
+  const id = (await params).id
   return (
     <div>
       <Suspense fallback={
         <Spinner />
       }>
-        <ProductSiteView />
+        <ProductDetailView id={id} />
       </Suspense>
     </div>
   )

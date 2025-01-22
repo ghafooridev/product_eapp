@@ -4,7 +4,7 @@
 import { prisma, PrismaType } from "@/lib/prisma"
 import { redirect } from "next/navigation";
 
-import { fetcher } from "@/lib/fetcher";
+// import { fetcher } from "@/lib/fetcher";
 import { Product } from "@prisma/client";
 
 
@@ -104,10 +104,10 @@ export const deleteProduct = async (formData: FormData) => {
 }
 
 // API CALLS
-export const getProductsAction = async (): Promise<PrismaType.Product[]> => {
-  return await fetcher('/api/product');
-}
+// export const getProductsAction = async (): Promise<PrismaType.Product[]> => {
+//   return await fetcher('/api/product');
+// }
 
-export const getProductByIdAction = async (id: string): Promise<PrismaType.Product> => {
-  return await fetcher(`/api/product?id=${id}`);
-}
+// export const getProductByIdAction = async (id: string): Promise<PrismaType.Product> => {
+//   return await fetcher(`/api/product?id=${id}`);
+// }

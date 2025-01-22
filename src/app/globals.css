@@ -70,3 +70,10 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.line-clamp {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+}

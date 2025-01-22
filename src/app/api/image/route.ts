@@ -64,13 +64,6 @@ export async function GET(req: NextRequest) {
       where: { productId },
     });
 
-    if (!images.length) {
-      return NextResponse.json(
-        { error: "No images found for this product" },
-        { status: 404 }
-      );
-    }
-
     return NextResponse.json({ images });
   } catch (error) {
     console.error("Error fetching images:", error);

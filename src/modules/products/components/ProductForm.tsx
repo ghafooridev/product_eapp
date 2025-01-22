@@ -58,7 +58,7 @@ const ProductForm: FC<{ product: Product | null }> = ({ product }) => {
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline" asChild>
-            <Link href="/product">Cancel</Link>
+            <Link href="/dashboard/products">Back</Link>
           </Button>
           <Button type="submit">
             {data?.id ? 'Update Product' : 'Add Product'}

@@ -11,7 +11,7 @@ export default function SitePage() {
         <span className="text-2xl font-bold text-gray-800">Digital Shop</span>
       </div>
       <Button asChild variant="default" className="mt-6">
-        <Link href="/product">
+        <Link href="/products">
           Go to Products
         </Link>
       </Button>

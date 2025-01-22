@@ -18,10 +18,11 @@ export const getImagesByProductId = async (productId: string) => {
     }
   );
   const data = await res.json();
+  console.log(data)
   if (res.ok) {
     return data
   }
-  throw new Error("Image does not Uploaded Properly")
+  throw new Error("Image does not fetched Properly")
 }
 
 export const deleteImage = async (imageId: string) => {
