@@ -3,7 +3,7 @@ import ProductDetail from "@/modules/products/components/ProductDetail";
 import { getProductById } from "@/modules/products/services/product";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+export async function generateMetadata({ params }: { params: any }) {
   const id = (await params).id
   const product = await getProductById(id);
 

@@ -1,5 +1,3 @@
-// app/products/[id]/page.tsx
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { ProductWithImages } from "@/types";
