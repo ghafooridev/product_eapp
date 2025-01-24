@@ -5,6 +5,7 @@ import "./globals.css";
 import ClerkProvider from "@/providers/clerk";
 import { MonitorSmartphone } from "lucide-react";
 import { currentUser } from '@clerk/nextjs/server'
+import CartAndAuth from "@/components/cartAndAuth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,14 +24,10 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  // ads,
-  auth,
-  cart
+  ads,
 }: Readonly<{
   children: React.ReactNode;
-  // ads: React.ReactNode;
-  auth: React.ReactNode;
-  cart: React.ReactNode;
+  ads: React.ReactNode;
 }>) {
   const user = await currentUser();
   const isAdmin = user?.privateMetadata?.isAdmin
@@ -56,14 +53,13 @@ export default async function RootLayout({
               </div>
 
               <div className="flex items-center gap-6">
-                {/* add slot here */}
-                {!!user ? auth : cart}
+                <CartAndAuth />
               </div>
             </header>
             <div className='px-20 mt-20' style={{ minHeight: 'calc(100vh - 120px)' }}>
               {children}
             </div>
-            {/* <div className="sticky bottom-20 mx-auto flex justify-center">  {ads}</div> */}
+            <div className="sticky bottom-20 mx-auto flex justify-center">  {ads}</div>
             <footer className=" bg-black text-white flex items-center justify-center  h-10">
               <p>&copy; 2025 JSwith Ali. All rights reserved.</p>
             </footer>

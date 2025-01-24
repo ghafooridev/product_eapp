@@ -4,6 +4,7 @@ import Spinner from '@/components/Spinner';
 import ProductDashBoardView from '@/modules/products/views/productDashboardView';
 
 function ProductPage() {
+
   return (
     <div>
       <Suspense fallback={
