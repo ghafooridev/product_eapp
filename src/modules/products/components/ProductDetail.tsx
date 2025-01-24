@@ -1,10 +1,15 @@
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { ProductWithImages } from "@/types";
 import { Button } from "@/components/ui";
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/hooks/useCart";
+import Link from "next/link";
 
-export default async function ProductDetail(product: ProductWithImages) {
+export default function ProductDetail(product: ProductWithImages) {
+  const { addToCartMutation } = useCart();
 
   return (
     <div className="container mx-auto py-10">
@@ -36,8 +41,20 @@ export default async function ProductDetail(product: ProductWithImages) {
               <p className="text-gray-700">quantity: {product?.quantity}</p>
               <p className="mt-2 text-sm">Category: {product?.category}</p>
               <p className="text-gray-600 line-clamp">{product?.description || "No description available."}</p>
-              <Button>Add To Cart
+              <Button
+                className="my-4"
+                onClick={() => addToCartMutation.mutate(product.id)}
+              >
+                {addToCartMutation.isPending ? "Adding..." : "Add to Cart"}
                 <ShoppingCart />
+              </Button>
+              <Button
+                variant="secondary"
+                asChild
+              >
+                <Link href="/products">
+                  Back to Products
+                </Link>
               </Button>
             </div>
           </div>

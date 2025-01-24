@@ -22,6 +22,7 @@ model Product {
   price       Float?          @default(0.0) // Use Float for monetary values
   quantity    Int?            @default(0) // Stock quantity
   images      Image[]
+  CartItem    CartItem[]
 }
 
 model Image {
@@ -29,4 +30,12 @@ model Image {
   image     String
   Product   Product? @relation(fields: [productId], references: [id])
   productId String?
+}
+
+model CartItem {
+  id        Int     @id @default(autoincrement())
+  userId    String
+  productId String
+  quantity  Int
+  product   Product @relation(fields: [productId], references: [id])
 }
