@@ -1,11 +1,10 @@
-import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
 import { currentUser } from '@clerk/nextjs/server';
 
 export async function GET() {
   const user = await currentUser();
   const userId = user?.id;
-
 
   if (userId) {
     // Fetch cart from database for logged-in users
@@ -24,7 +23,7 @@ export async function POST(request: Request) {
   const user = await currentUser();
   const userId = user?.id;
   if (!userId) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const { productId } = await request.json();
@@ -37,7 +36,6 @@ export async function POST(request: Request) {
       where: { id: existingCartItem.id },
       data: { quantity: existingCartItem.quantity + 1 },
     });
-    console.log(updatedItem)
     return NextResponse.json(updatedItem);
   }
 
@@ -57,7 +55,7 @@ export async function DELETE(request: Request) {
   const userId = user?.id;
 
   if (!userId) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const { productId } = await request.json();
@@ -67,12 +65,12 @@ export async function DELETE(request: Request) {
   });
 
   if (!existingCartItem) {
-    return NextResponse.json({ error: "Cart item not found" }, { status: 404 });
+    return NextResponse.json({ error: 'Cart item not found' }, { status: 404 });
   }
 
   await prisma.cartItem.delete({
     where: { id: existingCartItem.id },
   });
 
-  return NextResponse.json({ message: "Item removed from cart" });
+  return NextResponse.json({ message: 'Item removed from cart' });
 }

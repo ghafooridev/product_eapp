@@ -18,18 +18,15 @@
 //   return response
 // }
 
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
-
-const isPrivateRoute = createRouteMatcher(['/dashboard(.*)'])
+const isPrivateRoute = createRouteMatcher(['/dashboard(.*)']);
 
 export default clerkMiddleware(async (auth, request) => {
-
   if (isPrivateRoute(request)) {
-    await auth.protect()
+    await auth.protect();
   }
-
-})
+});
 
 export const config = {
   matcher: [
@@ -38,4 +35,4 @@ export const config = {
     // Always run for API routes
     '/(api|trpc)(.*)',
   ],
-}
+};

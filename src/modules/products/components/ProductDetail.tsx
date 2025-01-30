@@ -1,12 +1,12 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
-import { ProductWithImages } from "@/types";
-import { Button } from "@/components/ui";
-import { ShoppingCart } from "lucide-react";
-import { useCart } from "@/hooks/useCart";
-import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Image from 'next/image';
+import { ProductWithImages } from '@/types';
+import { Button } from '@/components/ui';
+import { ShoppingCart } from 'lucide-react';
+import { useCart } from '@/hooks/useCart';
+import Link from 'next/link';
 
 export default function ProductDetail(product: ProductWithImages) {
   const { addToCartMutation } = useCart();
@@ -37,24 +37,23 @@ export default function ProductDetail(product: ProductWithImages) {
               )}
             </div>
             <div className="flex flex-col justify-between">
-              <p className="text-xl font-semibold">${product?.price?.toFixed(2)}</p>
+              <p className="text-xl font-semibold">
+                ${product?.price?.toFixed(2)}
+              </p>
               <p className="text-gray-700">quantity: {product?.quantity}</p>
               <p className="mt-2 text-sm">Category: {product?.category}</p>
-              <p className="text-gray-600 line-clamp">{product?.description || "No description available."}</p>
+              <p className="text-gray-600 line-clamp">
+                {product?.description || 'No description available.'}
+              </p>
               <Button
                 className="my-4"
                 onClick={() => addToCartMutation.mutate(product.id)}
               >
-                {addToCartMutation.isPending ? "Adding..." : "Add to Cart"}
+                {addToCartMutation.isPending ? 'Adding...' : 'Add to Cart'}
                 <ShoppingCart />
               </Button>
-              <Button
-                variant="secondary"
-                asChild
-              >
-                <Link href="/products">
-                  Back to Products
-                </Link>
+              <Button variant="secondary" asChild>
+                <Link href="/products">Back to Products</Link>
               </Button>
             </div>
           </div>

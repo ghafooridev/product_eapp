@@ -1,31 +1,32 @@
-import { customMetaDataGenerator } from "@/lib/staticMetadata";
-import ProductDetail from "@/modules/products/components/ProductDetail";
-import { getProductById } from "@/modules/products/services/product";
-import { notFound } from "next/navigation";
+import { customMetaDataGenerator } from '@/lib/staticMetadata';
+import ProductDetail from '@/modules/products/components/ProductDetail';
+import { getProductById } from '@/modules/products/services/product';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: { params: any }) {
-  const id = (await params).id
+  const id = (await params).id;
   const product = await getProductById(id);
 
   if (!product) {
     return customMetaDataGenerator({
-      title: "Not Found",
+      title: 'Not Found',
     });
   }
   return customMetaDataGenerator({
     title: product?.name,
     images: product?.images,
     description: product?.description,
-  })
+  });
 }
 
-const ProductDetailPage = async ({ params }: {
-  params: Promise<{ id: string }>
+const ProductDetailPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
 }) => {
-  const id = (await params).id
+  const id = (await params).id;
 
   const product = await getProductById(id);
-
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -33,8 +34,7 @@ const ProductDetailPage = async ({ params }: {
     name: product?.name,
     image: product?.images.length && product?.images[0].image,
     description: product?.description,
-  }
-
+  };
 
   if (!product) {
     return notFound();
@@ -49,6 +49,6 @@ const ProductDetailPage = async ({ params }: {
       <ProductDetail {...product} />
     </section>
   );
-}
+};
 
-export default ProductDetailPage
+export default ProductDetailPage;

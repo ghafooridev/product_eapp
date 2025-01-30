@@ -7,21 +7,24 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui"
-import { Edit, PlusCircle } from "lucide-react";
-import Link from "next/link";
-import DeleteProduct from "./DeleteProduct";
-import Image from "next/image";
-import { getProducts } from "../services/product";
+} from '@/components/ui';
+import { Edit, PlusCircle } from 'lucide-react';
+import Link from 'next/link';
+import DeleteProduct from './DeleteProduct';
+import Image from 'next/image';
+import { getProducts } from '../services/product';
 
-const ProductTable = async (props: { products: Awaited<ReturnType<typeof getProducts>> }) => {
+const ProductTable = async (props: {
+  products: Awaited<ReturnType<typeof getProducts>>;
+}) => {
   const { products } = props;
   return (
     <div className="border border-gray-200 rounded-lg shadow-md mt-4 ">
       <div className="flex justify-between items-center p-4 bg-gray-100">
         <h1 className="text-xl font-semibold">Products</h1>
         <Button asChild>
-          <Link href="/dashboard/products/new">Add New Product
+          <Link href="/dashboard/products/new">
+            Add New Product
             <PlusCircle />
           </Link>
         </Button>
@@ -29,7 +32,7 @@ const ProductTable = async (props: { products: Awaited<ReturnType<typeof getProd
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead >Name</TableHead>
+            <TableHead>Name</TableHead>
             <TableHead className="text-center">Category</TableHead>
             <TableHead className="text-center">Price</TableHead>
             <TableHead className="text-center">Quantity</TableHead>
@@ -40,17 +43,25 @@ const ProductTable = async (props: { products: Awaited<ReturnType<typeof getProd
         <TableBody>
           {products.map((product) => (
             <TableRow key={product.id}>
-              <TableCell >{product.name}-{product.id}</TableCell>
+              <TableCell>
+                {product.name}-{product.id}
+              </TableCell>
               <TableCell className="text-center">{product.category}</TableCell>
               <TableCell className="text-center">{product.price}</TableCell>
               <TableCell className="text-center">{product.quantity}</TableCell>
               <TableCell className="text-center">
-                <Image src={product.images[0]?.image || '/assets/noImage.jpg'} alt={product.name} width={50} height={50} className="rounded-full m-auto" />
+                <Image
+                  src={product.images[0]?.image || '/assets/noImage.jpg'}
+                  alt={product.name}
+                  width={50}
+                  height={50}
+                  className="rounded-full m-auto"
+                />
               </TableCell>
               <TableCell className="text-center">
                 <div className="flex justify-center gap-2 items-center">
                   <Button variant="ghost" asChild>
-                    <Link href={`/dashboard/products/${product.id}`} >
+                    <Link href={`/dashboard/products/${product.id}`}>
                       <Edit />
                     </Link>
                   </Button>
@@ -68,7 +79,6 @@ const ProductTable = async (props: { products: Awaited<ReturnType<typeof getProd
         </TableFooter>
       </Table>
     </div>
-
-  )
-}
-export default ProductTable
+  );
+};
+export default ProductTable;

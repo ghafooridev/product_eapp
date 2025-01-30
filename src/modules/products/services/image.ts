@@ -1,6 +1,6 @@
 export const uploadImage = async (formData: FormData) => {
-  const res = await fetch("/api/image", {
-    method: "POST",
+  const res = await fetch('/api/image', {
+    method: 'POST',
     body: formData,
   });
 
@@ -8,22 +8,19 @@ export const uploadImage = async (formData: FormData) => {
   if (res.ok) {
     return data;
   }
-  throw new Error("Image does not Uploaded Properly")
-}
+  throw new Error('Image does not Uploaded Properly');
+};
 
 export const getImagesByProductId = async (productId: string) => {
-  const res = await fetch(`/api/image?productId=${productId}`,
-    {
-      cache: "force-cache",
-    }
-  );
+  const res = await fetch(`/api/image?productId=${productId}`, {
+    // cache: 'force-cache',
+  });
   const data = await res.json();
-  console.log(data)
   if (res.ok) {
-    return data
+    return data;
   }
-  throw new Error("Image does not fetched Properly")
-}
+  throw new Error('Image does not fetched Properly');
+};
 
 export const deleteImage = async (imageId: string) => {
   const res = await fetch(`/api/image?imageId=${imageId}`, {
@@ -32,8 +29,7 @@ export const deleteImage = async (imageId: string) => {
 
   const data = await res.json();
   if (res.ok) {
-    return data
-
+    return data;
   }
-  throw new Error("Image does not deleted Properly")
+  throw new Error('Image does not deleted Properly');
 };

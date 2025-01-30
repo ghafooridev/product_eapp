@@ -1,5 +1,5 @@
-import React from 'react'
-import { Suspense } from "react";
+import React from 'react';
+import { Suspense } from 'react';
 import Spinner from '@/components/Spinner';
 import ProductSiteView from '@/modules/products/views/productSiteView';
 
@@ -8,16 +8,12 @@ import ProductSiteView from '@/modules/products/views/productSiteView';
 function ProductPage() {
   // throw new Error("An unintentional Error, please revisit again")
   return (
-
     <div>
-      <Suspense fallback={
-        <Spinner />
-      }>
+      <Suspense fallback={<Spinner />}>
         <ProductSiteView />
       </Suspense>
     </div>
-
-  )
+  );
 }
 
-export default ProductPage
+export default ProductPage;

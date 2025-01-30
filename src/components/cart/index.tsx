@@ -1,14 +1,14 @@
 // components/CartDropdown.tsx
-"use client";
+'use client';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-  Button
-} from "@/components/ui";
-import { ShoppingCart } from "lucide-react";
-import { useCart } from "@/hooks/useCart";
-import { CartWithProduct } from "@/types";
+  Button,
+} from '@/components/ui';
+import { ShoppingCart } from 'lucide-react';
+import { useCart } from '@/hooks/useCart';
+import { CartWithProduct } from '@/types';
 
 export default function CartDropdown() {
   const { cart, isLoading, removeFromCartMutation } = useCart();
@@ -34,11 +34,18 @@ export default function CartDropdown() {
         ) : (
           <div className="space-y-3">
             {cart?.map((item: CartWithProduct) => (
-              <div key={item.id} className="flex items-center justify-between border-b pb-2">
+              <div
+                key={item.id}
+                className="flex items-center justify-between border-b pb-2"
+              >
                 <div>
                   <p className="text-sm font-medium">{item.product.name}</p>
-                  <p className="text-xs text-gray-500">Price: ${item.product.price?.toFixed(2)}</p>
-                  <p className="text-xs text-gray-500">Quantity: {item.quantity}</p>
+                  <p className="text-xs text-gray-500">
+                    Price: ${item.product.price?.toFixed(2)}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    Quantity: {item.quantity}
+                  </p>
                 </div>
                 <Button
                   variant="destructive"

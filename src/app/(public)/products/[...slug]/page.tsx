@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function pageSlug() {
-  return (
-    <div>pageSlug</div>
-  )
+  return <div>pageSlug</div>;
 }
 
-export default pageSlug
+export default pageSlug;
