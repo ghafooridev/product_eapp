@@ -15,7 +15,6 @@ export function customMetaDataGenerator({
   keywords = ['digital', 'mobile', 'laptop', 'watch'],
   images = undefined,
 }: ProductMetaDataProps): Metadata {
-
   return {
     title,
     description,

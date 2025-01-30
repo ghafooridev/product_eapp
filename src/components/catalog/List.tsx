@@ -1,13 +1,13 @@
 'use client';
-import * as React from "react";
+import * as React from 'react';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { Card, CardContent } from "@/components/ui/card"
-import { useSearchParams } from "next/navigation";
-import { getImagesByProductId } from "@/modules/products/services/image";
-import Image from "next/image";
-import { Image as ImageType } from "@prisma/client";
+import { Card, CardContent } from '@/components/ui/card';
+import { useSearchParams } from 'next/navigation';
+import { getImagesByProductId } from '@/modules/products/services/image';
+import Image from 'next/image';
+import { Image as ImageType } from '@prisma/client';
 
 function CatalogList() {
   const params = useSearchParams();
@@ -37,11 +37,10 @@ function CatalogList() {
               </CardContent>
             </Card>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
-
-export default CatalogList
+export default CatalogList;
